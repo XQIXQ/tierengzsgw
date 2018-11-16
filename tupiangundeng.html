@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title>图片滚动测试</title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			var i=0;
+			var timer=null;
+			$("#flash ul li").MOUSEOVER(function(){
+				clearInterval(timer);
+				i=$(this).index();
+				$(this).addClass("active").siblings("li").removeClass("active");
+				$("#flash img").eq(i).fadein().siblings("img").fadeOut();
+			});
+			$("#falsh ul li").mouseout(function(){
+				autoPlay()
+				
+			});
+			autoPlay()
+			function autoPlay(){
+				timer=setinterval(function(){
+					i++;
+					if(i>4){i=0};
+					$("#flash ul li").eq(i).addClass("active").siblings("li").removeClass("active");
+					$("#falsh img").eq(i).fadeIn().siblings("img").fadeOut();
+				},1500);
+				
+			}
+			
+		</script>
+		
+	</head>
+	<body>
+		<div class=""></div>
+	</body>
+</html>
